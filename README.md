@@ -21,11 +21,7 @@ Answer : getElementById("id") Finds one elements by id. ID are unique, so you wi
 
 2. How do you create and insert a new element into the DOM?
 
-     Answer : Create it  document.createElement("div").
-
-          Add text or style → newDiv.textContent = "Hello" .
-
-          Put it somewhere → parent.appendChild(newDiv) .
+     Answer : To create and add a new element in the DOM, we can use document.createElement(). After we make it, we can give it some text or set attributes. Then we can add it to the page with appendChild() or append(). For example, we can make a new and then put it inside the body.
 
           For Example : let newDiv = document.createElement("div");
                          newDiv.textContent = "I'm new here!";
@@ -34,34 +30,24 @@ Answer : getElementById("id") Finds one elements by id. ID are unique, so you wi
 
 3. What is Event Bubbling and how does it work?
 
-    Answer :  When you click on something inside another element, the event doesn’t stop there.
-            It goes from the clicked element  up to its parent  then to the grandparent  and so on.
+    Answer : Event bubbling means when we click or do an event on a child element, the event goes up step by step to its parent, then to the parent’s parent, and so on. Like if we click a button inside a div, first the button gets the event, then the div, then the document.
 
        Example : Click a button inside a <div>.
 
-      1. First, the button's clicik runs.
-      2. Then the <div> click runs.
-      3.Then it keeps going up.
+           1. First, the button's clicik runs.
+           2. Then the <div> click runs.
+           3.Then it keeps going up.
 
 
 4. What is Event Delegation in JavaScript? Why is it useful?
 
-Answer : Instead of putting event listeners on every child (like 100 buttons), you put one listener on the parent.
-         When something inside is clicked, you check which child was clicked using event.target.
-
-        1.You don’t need 100 listeners, just 1.
-
-        2.Works even if you add new children later.
+Answer : Event delegation uses bubbling in a smart way. Instead of putting event listeners on every small child, we put one listener on the parent. Because the event bubbles up, the parent can listen for the child’s events. This saves time and is useful when we add new elements later.
 
 
 5.What is the difference between preventDefault() and stopPropagation() methods?
 
 Answer : 
-         preventDefault()  stops the browser’s built-in action.
-
-         Example : A link won’t go to another page, a form won’t submit.
-
-       stopPropagation()  stops the event from bubbling up to parents. 
+        preventDefault() and stopPropagation() are different. preventDefault() stops the normal action of an element. For example, clicking a link normally opens a new page, but if we use preventDefault(), it will not open. stopPropagation() stops the event from moving up to the parent elements. For example, if we click on a button, the event will not go to its parent if we use stopPropagation(). 
 
        Example : Clicking a button won’t trigger the parent’s click event.
 
